@@ -40,13 +40,13 @@ namespace ToDoListApi.Controllers
             return Ok(toDoRepository.GetAll());
         }
 
-        [HttpGet("name:alpha")]
+        [HttpGet("{name:alpha}")]
         public IActionResult GetToDoItem(string name)
         {
             return Ok(toDoRepository.GetByName(name));
         }
 
-        [HttpPut("id:int")]
+        [HttpPut("{id:int}")]
 
         public IActionResult MarkToDoItemAsCompleted(int id, [FromBody] ToDo todo)
         {
@@ -68,7 +68,7 @@ namespace ToDoListApi.Controllers
 
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id:int}")]
         public IActionResult DeleteToDoItem(int id) 
         { 
             try
